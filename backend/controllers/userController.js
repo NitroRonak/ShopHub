@@ -68,3 +68,10 @@ export const loginUser = asyncHandler(async (req, res) => {
   
     res.status(200).json({ message: "Logged out successfully" });
   });
+
+
+  export const getAllUsers = asyncHandler(async (req, res) => {
+    const users = await User.find({});
+    res.json(users);
+  });
+  
