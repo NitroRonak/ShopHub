@@ -37,3 +37,10 @@
   display: none;
   transition: opacity 0.2s ease-in-out; /* Add opacity transition */
 }
+
+
+.sidebarFont{
+  font-family: "Anta", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
