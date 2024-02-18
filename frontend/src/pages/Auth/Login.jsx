@@ -104,7 +104,7 @@ const Login = () => {
           </div>
         </div>
         <img
-          src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1964&q=80"
+          src="https://s38924.pcdn.co/wp-content/uploads/2020/08/User-Registration-1.png"
           alt=""
           className="h-[100%] w-[50%] xl:block md:hidden hidden rounded-lg"
         />
