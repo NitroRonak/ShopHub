@@ -185,7 +185,7 @@ const Navigation = () => {
 
                 <li>
                   <Link
-                    to="/admin/profile"
+                    to="/profile"
                     className="block px-4 py-2 hover:bg-purple-200"
                     onClick={toggleSidebar}
                   >
@@ -193,13 +193,12 @@ const Navigation = () => {
                   </Link>
                 </li>
                 <li>
-                  <Link
-                    to="/admin/logout"
+                  <button
                     className="block px-4 py-2 hover:bg-purple-200"
                     onClick={logoutHandler}
                   >
                     Logout
-                  </Link>
+                  </button>
                 </li>
               </ul>
             )}
