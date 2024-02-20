@@ -46,7 +46,7 @@ export const updateCategory = asyncHandler(async (req, res) => {
 
 export const removeCategory = asyncHandler(async (req, res) => {
   try {
-    const removed = await Category.findByIdAndRemove(req.params.categoryId);
+    const removed = await Category.findByIdAndDelete(req.params.categoryId);
     res.json(removed);
   } catch (error) {
     console.error(error);
