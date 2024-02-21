@@ -10,7 +10,7 @@ import {
   AiOutlineMenu,
 } from "react-icons/ai";
 import { FaHeart } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 
 import { useDispatch, useSelector } from "react-redux";
@@ -62,38 +62,38 @@ const Navigation = () => {
         <div className="sidebarFont flex z-20 top-0 justify-between left-0 h-screen fixed flex-col w-64 bg-black text-white p-4">
           <div className="flex flex-col gap-10">
             {/* Links */}
-            <Link
+            <NavLink
               to="/"
               className="flex mt-20 gap-2 justify-start items-center hover:text-purple-500"
               onClick={toggleSidebar}
             >
               <AiOutlineHome size={26} />
               <span>Home</span>
-            </Link>
-            <Link
+            </NavLink>
+            <NavLink
               to="/shop"
               className="flex my-2 gap-2  justify-start items-center hover:text-purple-500"
               onClick={toggleSidebar}
             >
               <AiOutlineShopping size={26} />
               <span>Shop</span>
-            </Link>
-            <Link
+            </NavLink>
+            <NavLink
               to="/cart"
               className="flex my-2 gap-2 justify-start items-center hover:text-purple-500"
               onClick={toggleSidebar}
             >
               <AiOutlineShoppingCart size={26} />
               <span>Cart</span>
-            </Link>
-            <Link
+            </NavLink>
+            <NavLink
               to="/favorite"
               className="flex my-2 gap-2 justify-start items-center hover:text-purple-500"
               onClick={toggleSidebar}
             >
               <FaHeart size={26} />
               <span>Favorite</span>
-            </Link>
+            </NavLink>
           </div>
 
           <div className="relative">
@@ -136,65 +136,74 @@ const Navigation = () => {
                 {userInfo.isAdmin && (
                   <>
                     <li>
-                      <Link
+                      <NavLink
                         to="/admin/dashboard"
-                        className="block px-4 py-2 hover:bg-purple-500"
+                        className={({ isActive }) => `${isActive ? "text-green-500":"text-white"} block px-4 py-2 hover:bg-[#2E2D2D] `}
                         onClick={toggleSidebar}
                       >
                         Dashboard
-                      </Link>
+                      </NavLink>
                     </li>
                     <li>
-                      <Link
+                      <NavLink
                         to="/admin/productlist"
-                        className="block px-4 py-2 hover:bg-purple-500"
+                        className={({ isActive }) => `${isActive ? "text-green-500":"text-white"} block px-4 py-2 hover:bg-[#2E2D2D] `}
                         onClick={toggleSidebar}
                       >
-                        Products
-                      </Link>
+                        Create Product
+                      </NavLink>
                     </li>
                     <li>
-                      <Link
+                      <NavLink
+                        to="/admin/allproductslist"
+                        className={({ isActive }) => `${isActive ? "text-green-500":"text-white"} block px-4 py-2 hover:bg-[#2E2D2D] `}
+                        onClick={toggleSidebar}
+                      >
+                        All Products
+                      </NavLink>
+                    </li>
+                    <li>
+                      <NavLink
                         to="/admin/categorylist"
-                        className="block px-4 py-2 hover:bg-purple-500"
+                        className={({ isActive }) => `${isActive ? "text-green-500":"text-white"} block px-4 py-2 hover:bg-[#2E2D2D] `}
                         onClick={toggleSidebar}
                       >
                         Category
-                      </Link>
+                      </NavLink>
                     </li>
                     <li>
-                      <Link
+                      <NavLink
                         to="/admin/orderlist"
-                        className="block px-4 py-2 hover:bg-purple-500"
+                        className={({ isActive }) => `${isActive ? "text-green-500":"text-white"} block px-4 py-2 hover:bg-[#2E2D2D] `}
                         onClick={toggleSidebar}
                       >
                         Orders
-                      </Link>
+                      </NavLink>
                     </li>
                     <li>
-                      <Link
+                      <NavLink
                         to="/admin/userlist"
-                        className="block px-4 py-2 hover:bg-purple-500"
+                        className={({ isActive }) => `${isActive ? "text-green-500":"text-white"} block px-4 py-2 hover:bg-[#2E2D2D] `}
                         onClick={toggleSidebar}
                       >
                         Users
-                      </Link>
+                      </NavLink>
                     </li>
                   </>
                 )}
 
                 <li>
-                  <Link
+                  <NavLink
                     to="/profile"
-                    className="block px-4 py-2 hover:bg-purple-500"
+                    className={({ isActive }) => `${isActive ? "text-green-500":"text-white"} block px-4 py-2 hover:bg-[#2E2D2D] `}
                     onClick={toggleSidebar}
                   >
                     Profile
-                  </Link>
+                  </NavLink>
                 </li>
                 <li>
                   <button
-                    className="block px-4 py-2 hover:bg-purple-500"
+                    className={({ isActive }) => `${isActive ? "text-green-500":"text-white"} block px-4 py-2 hover:bg-[#2E2D2D] `}
                     onClick={logoutHandler}
                   >
                     Logout
@@ -208,24 +217,24 @@ const Navigation = () => {
           {!userInfo && (
             <ul>
               <li>
-                <Link
+                <NavLink
                   to="/login"
                   className="flex items-center transition-transform transform hover:translate-x-2"
                   onClick={toggleSidebar}
                 >
                   <AiOutlineLogin className="mr-2 mt-[3rem]" size={26} />
                   <span className="mt-[3rem]">Login</span>{" "}
-                </Link>
+                </NavLink>
               </li>
               <li>
-                <Link
+                <NavLink
                   to="/register"
                   className="flex items-center transition-transform transform hover:translate-x-2"
                   onClick={toggleSidebar}
                 >
                   <AiOutlineUserAdd className="mr-2 mt-[3rem]" size={26} />
                   <span className="mt-[3rem]">Register</span>{" "}
-                </Link>
+                </NavLink>
               </li>
             </ul>
           )}
