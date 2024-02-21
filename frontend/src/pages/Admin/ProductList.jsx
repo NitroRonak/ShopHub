@@ -160,7 +160,7 @@ const ProductList = () => {
               <label className="block text-white mb-2">Count In Stock</label>
               <input
                 type="text"
-                placeholder="Enter description"
+                placeholder="Enter stock"
                 className="form-input p-4 rounded-sm w-full outline-none"
                 value={stock}
                 onChange={(e) => setStock(e.target.value)}
