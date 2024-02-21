@@ -1,10 +1,10 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import moment from "moment";
 import { useAllProductsQuery } from "../../redux/api/productApiSlice";
 
 const AllProducts = () => {
-  const { data: products, isLoading, isError } = useAllProductsQuery();
+  const { data: products, isLoading, isError, refetch } = useAllProductsQuery();
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 10;
 
@@ -40,6 +40,7 @@ const AllProducts = () => {
       setCurrentPage(currentPage + 1);
     }
   };
+
 
   return (
     <div className="container mx-auto p-10">
