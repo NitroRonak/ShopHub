@@ -11,6 +11,7 @@ import PrivateRoute from "./components/PrivateRoute.jsx";
 
 
 import Profile from "./pages/Users/Profile.jsx";
+import Favorites from "./pages/Products/Favorites.jsx";
 
 //Auth
 import Login from "./pages/Auth/Login.jsx";
@@ -31,6 +32,7 @@ const router = createBrowserRouter(
       <Route path="/login" element={<Login />} />
       <Route path="/register" element={<Register />} />
       <Route index={true} path="/" element={<Home />}/>
+      <Route path="/favorite" element={<Favorites />}/>
 
       <Route path="" element={<PrivateRoute />}>
         <Route path="/profile" element={<Profile />} />
