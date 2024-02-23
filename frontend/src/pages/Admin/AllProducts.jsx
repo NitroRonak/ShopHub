@@ -103,7 +103,7 @@ const AllProducts = () => {
         <button
           onClick={handlePrevPage}
           disabled={currentPage === 1}
-          className="px-3 py-2 bg-gray-200 text-gray-800 rounded-full focus:outline-none"
+          className="px-3 py-2 bg-purple-500 text-white rounded-sm focus:outline-none"
         >
           Prev
         </button>
@@ -111,7 +111,7 @@ const AllProducts = () => {
         <button
           onClick={handleNextPage}
           disabled={currentPage === totalPages}
-          className="px-3 py-2 bg-gray-200 text-gray-800 rounded-full focus:outline-none"
+          className="px-3 py-2 bg-purple-500 text-white rounded-sm focus:outline-none"
         >
           Next
         </button>
