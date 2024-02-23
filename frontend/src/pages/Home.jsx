@@ -1,5 +1,5 @@
 import { Link, useParams } from "react-router-dom";
-import { useGetProductsQuery } from "../redux/api/productApiSlice";
+import { useGetTopProductsQuery } from "../redux/api/productApiSlice";
 import Loader from "../components/Loader";
 import Header from "../components/Header";
 import Message from "../components/Message";
@@ -8,7 +8,7 @@ import gsap from "gsap";
 import { useEffect, useRef } from "react";
 const Home = () => {
   const { keyword } = useParams();
-  const { data, isLoading, isError } = useGetProductsQuery({ keyword });
+  const { data, isLoading, isError } = useGetTopProductsQuery({ keyword });
   const specialProductsRef = useRef(null);
   useEffect(() => {
     if (specialProductsRef.current) {
@@ -46,7 +46,7 @@ const Home = () => {
             ref={specialProductsRef}
           >
             <h1 className="mt-6 text-3xl lg:text-5xl text-gray-400">
-              Special Products
+              Top Products
             </h1>
             <Link
               to="/shop"
@@ -57,7 +57,7 @@ const Home = () => {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 m-6 bg-gray-950 rounded-[59px]">
-            {data.products.map((product) => (
+            {data?.map((product) => (
               <div key={product._id} className="product-card">
                 <Product product={product} />
               </div>

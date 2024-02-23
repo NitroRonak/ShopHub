@@ -59,7 +59,9 @@ const UserList = () => {
 
   return (
     <div className="p-16">
-      <h1 className="text-2xl font-bold mt-10 text-purple-500 mb-4">Users</h1>
+      <h1 className="lg:text-5xl md:text-4xl text-3xl font-bold mt-10 text-white mb-4 AntaFont">
+        Users
+      </h1>
       {isLoading ? (
         <Loader />
       ) : error ? (
@@ -72,18 +74,10 @@ const UserList = () => {
           <table className="w-full md:w-4/5 mx-auto">
             <thead>
               <tr>
-                <th className="px-4 py-2 text-left text-orange-200 ">
-                  ID
-                </th>
-                <th className="px-4 py-2 text-left text-orange-200 ">
-                  NAME
-                </th>
-                <th className="px-4 py-2 text-left text-orange-200 ">
-                  EMAIL
-                </th>
-                <th className="px-4 py-2 text-left text-orange-200 ">
-                  ADMIN
-                </th>
+                <th className="px-4 py-2 text-left text-orange-200 ">ID</th>
+                <th className="px-4 py-2 text-left text-orange-200 ">NAME</th>
+                <th className="px-4 py-2 text-left text-orange-200 ">EMAIL</th>
+                <th className="px-4 py-2 text-left text-orange-200 ">ADMIN</th>
                 <th className="px-4 py-2"></th>
               </tr>
             </thead>

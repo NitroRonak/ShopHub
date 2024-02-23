@@ -16,6 +16,7 @@ import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { logout } from "../../redux/features/auth/authSlice";
 import { useLogoutMutation } from "../../redux/api/usersApiSlice";
+import FavoriteCount from "../../components/FavoriteCount";
 
 const Navigation = () => {
   const { userInfo } = useSelector((state) => state.auth);
@@ -88,11 +89,12 @@ const Navigation = () => {
             </NavLink>
             <NavLink
               to="/favorite"
-              className="flex my-2 gap-2 justify-start items-center hover:text-purple-500"
+              className="flex my-2 gap-2 justify-start items-center hover:text-purple-500 relative"
               onClick={toggleSidebar}
             >
               <FaHeart size={26} />
               <span>Favorite</span>
+              <FavoriteCount/>
             </NavLink>
           </div>
 
