@@ -23,8 +23,7 @@ const Navigation = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const [logoutApiCall] = useLogoutMutation();
-
-  
+  const { cartItems } = useSelector((state) => state.cart);
 
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [showSidebar, setShowSidebar] = useState(false);
@@ -36,7 +35,6 @@ const Navigation = () => {
   const toggleDropdown = () => {
     setDropdownOpen(!dropdownOpen);
   };
-
 
   const logoutHandler = async () => {
     try {
@@ -81,11 +79,17 @@ const Navigation = () => {
             </NavLink>
             <NavLink
               to="/cart"
-              className="flex my-2 gap-2 justify-start items-center hover:text-purple-500"
+              className="my-2 hover:text-purple-500 relative"
               onClick={toggleSidebar}
             >
-              <AiOutlineShoppingCart size={26} />
-              <span>Cart</span>
+              <div className="flex gap-2 items-center">
+                <AiOutlineShoppingCart size={26} />
+                <span>Cart</span>
+              </div>
+
+              <div className="absolute top-[-8px] left-4 bg-red-500 text-white rounded-full w-5 h-5 flex justify-center items-center font-bold">
+                {cartItems.length > 0 ? <span>{cartItems.length}</span> : null}
+              </div>
             </NavLink>
             <NavLink
               to="/favorite"
@@ -94,7 +98,7 @@ const Navigation = () => {
             >
               <FaHeart size={26} />
               <span>Favorite</span>
-              <FavoriteCount/>
+              <FavoriteCount />
             </NavLink>
           </div>
 
@@ -140,7 +144,11 @@ const Navigation = () => {
                     <li>
                       <NavLink
                         to="/admin/dashboard"
-                        className={({ isActive }) => `${isActive ? "text-green-500":"text-white"} block px-4 py-2 hover:bg-[#2E2D2D] `}
+                        className={({ isActive }) =>
+                          `${
+                            isActive ? "text-green-500" : "text-white"
+                          } block px-4 py-2 hover:bg-[#2E2D2D] `
+                        }
                         onClick={toggleSidebar}
                       >
                         Dashboard
@@ -149,7 +157,11 @@ const Navigation = () => {
                     <li>
                       <NavLink
                         to="/admin/productlist"
-                        className={({ isActive }) => `${isActive ? "text-green-500":"text-white"} block px-4 py-2 hover:bg-[#2E2D2D] `}
+                        className={({ isActive }) =>
+                          `${
+                            isActive ? "text-green-500" : "text-white"
+                          } block px-4 py-2 hover:bg-[#2E2D2D] `
+                        }
                         onClick={toggleSidebar}
                       >
                         Create Product
@@ -158,7 +170,11 @@ const Navigation = () => {
                     <li>
                       <NavLink
                         to="/admin/allproductslist"
-                        className={({ isActive }) => `${isActive ? "text-green-500":"text-white"} block px-4 py-2 hover:bg-[#2E2D2D] `}
+                        className={({ isActive }) =>
+                          `${
+                            isActive ? "text-green-500" : "text-white"
+                          } block px-4 py-2 hover:bg-[#2E2D2D] `
+                        }
                         onClick={toggleSidebar}
                       >
                         All Products
@@ -167,7 +183,11 @@ const Navigation = () => {
                     <li>
                       <NavLink
                         to="/admin/categorylist"
-                        className={({ isActive }) => `${isActive ? "text-green-500":"text-white"} block px-4 py-2 hover:bg-[#2E2D2D] `}
+                        className={({ isActive }) =>
+                          `${
+                            isActive ? "text-green-500" : "text-white"
+                          } block px-4 py-2 hover:bg-[#2E2D2D] `
+                        }
                         onClick={toggleSidebar}
                       >
                         Category
@@ -176,7 +196,11 @@ const Navigation = () => {
                     <li>
                       <NavLink
                         to="/admin/orderlist"
-                        className={({ isActive }) => `${isActive ? "text-green-500":"text-white"} block px-4 py-2 hover:bg-[#2E2D2D] `}
+                        className={({ isActive }) =>
+                          `${
+                            isActive ? "text-green-500" : "text-white"
+                          } block px-4 py-2 hover:bg-[#2E2D2D] `
+                        }
                         onClick={toggleSidebar}
                       >
                         Orders
@@ -185,7 +209,11 @@ const Navigation = () => {
                     <li>
                       <NavLink
                         to="/admin/userlist"
-                        className={({ isActive }) => `${isActive ? "text-green-500":"text-white"} block px-4 py-2 hover:bg-[#2E2D2D] `}
+                        className={({ isActive }) =>
+                          `${
+                            isActive ? "text-green-500" : "text-white"
+                          } block px-4 py-2 hover:bg-[#2E2D2D] `
+                        }
                         onClick={toggleSidebar}
                       >
                         Users
@@ -197,7 +225,11 @@ const Navigation = () => {
                 <li>
                   <NavLink
                     to="/profile"
-                    className={({ isActive }) => `${isActive ? "text-green-500":"text-white"} block px-4 py-2 hover:bg-[#2E2D2D] `}
+                    className={({ isActive }) =>
+                      `${
+                        isActive ? "text-green-500" : "text-white"
+                      } block px-4 py-2 hover:bg-[#2E2D2D] `
+                    }
                     onClick={toggleSidebar}
                   >
                     Profile
@@ -205,7 +237,11 @@ const Navigation = () => {
                 </li>
                 <li>
                   <button
-                    className={({ isActive }) => `${isActive ? "text-green-500":"text-white"} block px-4 py-2 hover:bg-[#2E2D2D] `}
+                    className={({ isActive }) =>
+                      `${
+                        isActive ? "text-green-500" : "text-white"
+                      } block px-4 py-2 hover:bg-[#2E2D2D] `
+                    }
                     onClick={logoutHandler}
                   >
                     Logout
