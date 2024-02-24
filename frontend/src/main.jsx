@@ -26,6 +26,7 @@ import ProductList from "./pages/Admin/ProductList.jsx";
 import AllProducts from "./pages/Admin/AllProducts.jsx";
 import ProductUpdate from "./pages/Admin/ProductUpdate.jsx";
 import Home from "./pages/Home.jsx";
+import Cart from "./pages/Cart.jsx";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -39,6 +40,8 @@ const router = createBrowserRouter(
         <Route path="/profile" element={<Profile />} />
       </Route>
       <Route path="/product/:id" element={<ProductDetails />} />
+
+      <Route path="/cart" element={<Cart/>}/>
 
       {/* Admin Routes */}
       <Route path="/admin" element={<AdminRoute />}>
