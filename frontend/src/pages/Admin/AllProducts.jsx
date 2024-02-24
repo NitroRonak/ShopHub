@@ -41,7 +41,6 @@ const AllProducts = () => {
     }
   };
 
-
   return (
     <div className="container mx-auto p-10">
       <h1 className="text-2xl font-bold mb-4 AntaFont mt-10">
@@ -93,7 +92,7 @@ const AllProducts = () => {
                   />
                 </svg>
               </Link>
-              <p className="text-lg font-semibold">₹ {product?.price}</p>
+              <p className="text-lg font-semibold">$ {product?.price}</p>
             </div>
           </Link>
         ))}

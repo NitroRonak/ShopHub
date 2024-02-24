@@ -88,7 +88,7 @@ const ProductDetails = () => {
               <p className="my-4 xl:w-[35rem] lg:w-[35rem] md:w-[30rem] text-[#e6d4d4]">
                 {product.description}
               </p>
-              <p className="text-5xl my-4 font-extrabold">₹ {product.price}</p>
+              <p className="text-5xl my-4 font-extrabold">$ {product.price}</p>
 
               <div className="grid md:grid-cols-2 grid-cols-1">
                 {/* One */}

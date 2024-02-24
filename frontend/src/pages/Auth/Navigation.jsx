@@ -87,8 +87,12 @@ const Navigation = () => {
                 <span>Cart</span>
               </div>
 
-              <div className="absolute top-[-8px] left-4 bg-red-500 text-white rounded-full w-5 h-5 flex justify-center items-center font-bold">
-                {cartItems.length > 0 ? <span>{cartItems.length}</span> : null}
+              <div className="absolute top-[-8px] left-4 text-white  font-bold">
+                {cartItems.length > 0 ? (
+                  <span className=" bg-red-500 w-5 h-5 rounded-full flex justify-center items-center">
+                    {cartItems.length}
+                  </span>
+                ) : null}
               </div>
             </NavLink>
             <NavLink

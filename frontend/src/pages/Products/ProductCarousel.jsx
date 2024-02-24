@@ -57,7 +57,7 @@ const ProductCarousel = () => {
                 <div className="mt-4 flex justify-around">
                   <div className="one">
                     <h2>{name}</h2>
-                    <p> ₹ {price}</p>
+                    <p> $ {price}</p>
                   </div>
 
                   <div className="flex justify-between w-[20rem]">
