@@ -12,6 +12,7 @@ import PrivateRoute from "./components/PrivateRoute.jsx";
 
 import Profile from "./pages/Users/Profile.jsx";
 import Favorites from "./pages/Products/Favorites.jsx";
+import ProductDetails from "./pages/Products/ProductDetails.jsx";
 
 //Auth
 import Login from "./pages/Auth/Login.jsx";
@@ -37,6 +38,7 @@ const router = createBrowserRouter(
       <Route path="" element={<PrivateRoute />}>
         <Route path="/profile" element={<Profile />} />
       </Route>
+      <Route path="/product/:id" element={<ProductDetails />} />
 
       {/* Admin Routes */}
       <Route path="/admin" element={<AdminRoute />}>
