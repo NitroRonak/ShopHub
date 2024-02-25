@@ -32,6 +32,7 @@ import Cart from "./pages/Cart.jsx";
 import Shop from "./pages/Shop.jsx";
 import Order from "./pages/Orders/Order.jsx";
 import UserOrder from "./pages/Users/UserOrder.jsx";
+import OrderList from "./pages/Admin/OrderList.jsx";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -62,6 +63,7 @@ const router = createBrowserRouter(
         <Route path="productlist" element={<ProductList />} />
         <Route path="allproductslist" element={<AllProducts />} />
         <Route path="product/update/:_id" element={<ProductUpdate />} />
+        <Route path="orderlist" element={<OrderList />}  />
       </Route>
     </Route>
   )
