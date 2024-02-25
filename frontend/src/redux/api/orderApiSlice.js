@@ -62,6 +62,13 @@ export const orderApiSlice = apiSlice.injectEndpoints({
     getTotalSalesByDate: builder.query({
       query: () => `${ORDERS_URL}/total-sales-by-date`,
     }),
+
+    deleteOrderById:builder.mutation({
+      query: (id) => ({
+        url: `${ORDERS_URL}/${id}`,
+        method: "DELETE",
+      })
+    })
   }),
 });
 
@@ -77,4 +84,5 @@ export const {
   useGetMyOrdersQuery,
   useDeliverOrderMutation,
   useGetOrdersQuery,
+  useDeleteOrderByIdMutation
 } = orderApiSlice;

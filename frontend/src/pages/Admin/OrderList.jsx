@@ -1,5 +1,5 @@
 import React from "react";
-import { useGetOrdersQuery } from "../../redux/api/orderApiSlice";
+import { useGetOrdersQuery, useDeleteOrderByIdMutation } from "../../redux/api/orderApiSlice";
 import Message from "../../components/Message";
 import Loader from "../../components/Loader";
 import { Link } from "react-router-dom";
@@ -13,10 +13,28 @@ import {
   Paper,
   Button,
 } from "@mui/material";
+import { FaTrash } from "react-icons/fa";
+import {toast} from "react-toastify"
 
 const OrderList = () => {
   const { data: orders, isLoading, error } = useGetOrdersQuery();
+  const [deleteOrderById] = useDeleteOrderByIdMutation();
+  const deleteOrder =async (id)=>{
+    const confirm = window.confirm("Are you sure you want to delete this order?");
+    if(confirm){
+      try {
+       const res= await deleteOrderById(id).unwrap();
+       if(res.status===200){
+        window.location.reload();
+        toast.success(res.message);
+       }
+        
+      } catch (error) {
+        toast.error(error?.data?.message || error.error); 
+      }
 
+    }
+  }
   return (
     <>
       {isLoading ? (
@@ -38,6 +56,7 @@ const OrderList = () => {
                   <TableCell className="text-left pl-1">TOTAL</TableCell>
                   <TableCell className="text-left pl-1">PAID</TableCell>
                   <TableCell className="text-left pl-1">DELIVERED</TableCell>
+                  <TableCell className="text-left pl-1">DELETE</TableCell>
                   <TableCell></TableCell>
                 </TableRow>
               </TableHead>
@@ -82,6 +101,15 @@ const OrderList = () => {
                         <p className="p-1 text-center bg-red-400 w-[6rem] rounded-full">
                           Pending
                         </p>
+                      )}
+                    </TableCell>
+                    <TableCell className="px-2 py-2">
+                      {order.isDelivered ? (
+                        <button className="text-red-500 text-lg" onClick={() => deleteOrder(order._id)}>
+                          <FaTrash />
+                        </button>
+                      ) : (
+                        <p>Not Delevered Yet</p>
                       )}
                     </TableCell>
                     <TableCell>

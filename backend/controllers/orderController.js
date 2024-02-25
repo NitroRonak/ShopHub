@@ -201,6 +201,17 @@ const markOrderAsDelivered = async (req, res) => {
   }
 };
 
+
+export const deleteOrderById = async (req, res) => {
+  try {
+    await Order.findByIdAndDelete(req.params.id);
+    res.status(200).json({ message: "Order deleted successfully",status:200 });
+
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+};
+
 export {
   createOrder,
   getAllOrders,
