@@ -42,7 +42,7 @@ const Home = () => {
       ) : (
         <>
           <div
-            className="flex flex-col items-center lg:flex-row justify-around lg:items-center"
+            className="flex flex-col items-center lg:flex-row justify-around lg:items-center w-full"
             ref={specialProductsRef}
           >
             <h1 className="mt-6 text-3xl lg:text-5xl text-gray-400">
@@ -56,7 +56,7 @@ const Home = () => {
             </Link>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 m-6 bg-gray-950 rounded-[59px]">
+          <div className="flex flex-wrap justify-center items-center gap-6 m-6 bg-gray-950 rounded-[59px]">
             {data?.map((product) => (
               <div key={product._id} className="product-card">
                 <Product product={product} />
