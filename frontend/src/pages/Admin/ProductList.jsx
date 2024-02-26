@@ -1,9 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import {
-  useCreateProductMutation,
-  useUploadProductImageMutation,
-} from "../../redux/api/productApiSlice";
+import { useCreateProductMutation } from "../../redux/api/productApiSlice";
 import { useFetchCategoriesQuery } from "../../redux/api/categoryApiSlice";
 import { toast } from "react-toastify";
 
@@ -19,7 +16,6 @@ const ProductList = () => {
   const [imageUrl, setImageUrl] = useState(null);
   const navigate = useNavigate();
 
-  const [uploadProductImage] = useUploadProductImageMutation();
   const [createProduct] = useCreateProductMutation();
   const { data: categories } = useFetchCategoriesQuery();
 
@@ -52,19 +48,18 @@ const ProductList = () => {
   };
 
   const uploadFileHandler = async (e) => {
-    const formData = new FormData();
-    formData.append("image", e.target.files[0]);
+    const file = e.target.files[0];
+    
 
-    try {
-      const res = await uploadProductImage(formData).unwrap();
-      // Replace backslashes with forward slashes in the URL
-      const url = res.image.replace(/\\/g, "/");
-      console.log(url);
-      toast.success(res.message);
-      setImage(url);
-      setImageUrl(url);
-    } catch (error) {
-      toast.error(error?.data?.message || error.error);
+    if (file) {
+      const reader = new FileReader();
+
+      reader.onloadend = () => {
+        setImage(reader.result);
+        setImageUrl(reader.result);
+      };
+
+      reader.readAsDataURL(file);
     }
   };
 

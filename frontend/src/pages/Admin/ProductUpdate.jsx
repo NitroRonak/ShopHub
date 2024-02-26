@@ -4,7 +4,6 @@ import {
   useUpdateProductMutation,
   useDeleteProductMutation,
   useGetProductByIdQuery,
-  useUploadProductImageMutation,
 } from "../../redux/api/productApiSlice";
 import { useFetchCategoriesQuery } from "../../redux/api/categoryApiSlice";
 import { toast } from "react-toastify";
@@ -34,9 +33,7 @@ const ProductUpdate = () => {
   // Fetch categories using RTK Query
   const { data: categories = [] } = useFetchCategoriesQuery();
 
-  const [uploadProductImage] = useUploadProductImageMutation();
 
-  // Define the update product mutation
   const [updateProduct] = useUpdateProductMutation();
 
   // Define the delete product mutation
@@ -56,14 +53,17 @@ const ProductUpdate = () => {
   }, [productData]);
 
   const uploadFileHandler = async (e) => {
-    const formData = new FormData();
-    formData.append("image", e.target.files[0]);
-    try {
-      const res = await uploadProductImage(formData).unwrap();
-      toast.success("Item added successfully");
-      setImage(res.image);
-    } catch (err) {
-      toast.success("Item added successfully");
+    const file = e.target.files[0];
+    
+
+    if (file) {
+      const reader = new FileReader();
+
+      reader.onloadend = () => {
+        setImage(reader.result);
+      };
+
+      reader.readAsDataURL(file);
     }
   };
 
