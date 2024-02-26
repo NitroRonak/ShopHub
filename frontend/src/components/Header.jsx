@@ -1,7 +1,6 @@
 import { useGetTopProductsQuery } from "../redux/api/productApiSlice";
 import Loader from "./Loader";
 import React, { useEffect, useRef } from "react";
-import SmallProduct from "../pages/Products/SmallProduct";
 import ProductCarousel from "../pages/Products/ProductCarousel";
 import gsap from "gsap";
 const Header = () => {
