@@ -8,7 +8,6 @@ import {
 } from "../../redux/api/categoryApiSlice";
 import Modal from "../../components/Model";
 import CategoryForm from "../../components/CategoryForm";
-// import AdminMenu from "./AdminMenu";
 const CategoryList = () => {
   const { data: categories, refetch } = useFetchCategoriesQuery();
   const [name, setName] = useState("");
